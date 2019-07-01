@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import {
+  BarcodeScannerOptions,
+  BarcodeScanner
+} from "@ionic-native/barcode-scanner/ngx";
 
 
 
@@ -8,7 +12,20 @@ import { Component } from '@angular/core';
   styleUrls: ['tab2.page.scss']
 })
 export class Tab2Page {
+  encodeData: any;
+  barcodeScannerOptions: BarcodeScannerOptions;
 
-  constructor() {}
+  constructor(private barcodeScanner: BarcodeScanner) {
+    //this.encodeData = "https://www.FreakyJolly.com";
+  }
+
+  encodedText(){
+    this.barcodeScanner.encode(this.barcodeScanner.Encode.TEXT_TYPE,this.encodeData).then((encodeData) => {
+        console.log(encodeData);
+        this.encodeData = encodeData;
+    }, (err) => {
+        console.log("Error occured : " + err);
+    });                 
+}
 
 }

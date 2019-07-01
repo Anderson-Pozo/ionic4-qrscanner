@@ -1,11 +1,30 @@
-<ion-header no-border>
-  <ion-toolbar>
+<ion-header no-border >
+  <ion-toolbar color="dark">
     <ion-title>
-      Crear
+        Crear codigo QR
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content padding>
+  <!--
+  <ion-item>
+    <ion-input type="text" placeholder="Ingresa URL o texto para generar codigo QR" [(ngModel)]="qrData">
+    </ion-input>
+  </ion-item>
+  <button ion-button full icon-left (click)="creacionCodigo()"><ion-icon name="create">Crear código</ion-icon></button>
 
+  <ion-card *ngIf="crearCodigo">
+    <ngx-qrcode [qrc-value]="crearCodigo"></ngx-qrcode>
+    <ion-card-content>
+      <p>Valor: {{crearCodigo}}</p>
+    </ion-card-content>
+  </ion-card>
+  -->
+  <ion-input type="text" placeholder="Ingresa URL o texto para generar codigo QR" [(ngModel)]="encodeData"></ion-input>
+ 
+  <ion-button (click)="encodedText()" icon-left color="success">
+      <ion-icon name="create"></ion-icon>
+      Crear código QR
+  </ion-button>
 </ion-content>
